@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import TodoList from './TodoList';
+import Header from './Header';
 
 class TodoContainer extends React.Component {
   state = {
@@ -23,14 +24,21 @@ class TodoContainer extends React.Component {
     ],
   };
 
-  render() {
-    return (
+   handleChange = (id) => {
+     console.log('I work!', id);
+   };
+
+   render() {
+     return (
       <>
-        <h1>Todo List</h1>
-        <TodoList todos={this.state.todos} />
+        <Header />
+        <TodoList
+        todos={this.state.todos}
+        handleChangeProps={this.handleChange}
+        />
       </>
-    );
-  }
+     );
+   }
 }
 
 export default TodoContainer;
